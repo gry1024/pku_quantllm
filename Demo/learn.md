@@ -1,6 +1,6 @@
 # 从 Demo/demo.py 到完整交易系统 —— 学习路径
 
-> 目标：自底向上亲手构建一个最小交易系统的每一层（Gateway / EventEngine / MainEngine / 策略引擎 / 回测 / 7×24 / 可视化），再回头用 vnpy 现成抽象替换自研代码。
+> 目标：自底向上亲手构建一个最小交易系统的每一层（Gateway / EventEngine / MainEngine / 策略引擎 / 回测 / 7×24），再回头用 vnpy 现成抽象替换自研代码。
 >
 > 原则：每一步**只新增一个抽象层**，跑通后才进入下一步；每一步都能在 SimNow 实盘环境独立验证。
 
@@ -72,7 +72,7 @@ gateway.subscribe(["au2612"])
 
 - 行情继续打印，资金/持仓仍能查
 - `print` 语句从 main.py 消失 —— 改由 event_engine 把行情分发出来
-- **尝试切到公开测试账号（000300 / Vnpy@123456789）跑一次**，再切回私有账号，理解 IP 白名单和 4 session 上限的影响
+- **用你的 276266 在 7×24 仿真环境（td=40001 / md=40011）多跑几次连接/断开**，复测断线重连；遇到连接失败先去 simnow.com.cn 核对 IP 白名单
 
 ### 1.4 对应 vnpy 源码
 读 `vnpy/trader/gateway.py` 的 `BaseGateway` 抽象类，**不读实现**，只看接口约定。
@@ -337,6 +337,7 @@ engine.run_optimization(opt)       # 输出每个参数组合的收益/回撤
 
 - 同一策略、同一区间，`run_backtesting` 和 `run_optimization` 至少跑一次
 - 把回测报告（`calculate_statistics()` 输出）打印出来，理解**夏普 / 最大回撤 / 收益回撤比**三个核心指标
+- **跑完直接 `engine.show_chart()`** —— vnpy 自带 plotly 资金曲线 + 最大回撤阴影，1 行出图，这是判断策略赚没赚钱的唯一可靠方式
 
 ---
 
@@ -420,70 +421,16 @@ stderr_logfile=/home/groy/quantllm/Demo/logs/supervisor.err
 - `supervisorctl status quantllm` 显示 RUNNING
 - 手动 `kill -9` 主进程 → 5 秒内自动重启
 - 连续运行 24 小时，统计：日志行数、断线重连次数、累计成交笔数
+- **本地资金监控**：跑一个 `veighna`（vnpy 自带 PyQt5 GUI），登录同一 CTP 账户，主窗口直接显示资金曲线 + 持仓 + 委托 —— 7×24 运行时盯这个窗口即可
+- *（可选，仅机器旁没人时追加）远程监控*：再加 ≤50 行的 FastAPI + Chart.js，订阅 EventEngine 的 `EVENT_ACCOUNT` 推数据，浏览器看实时曲线
 
 ---
 
-## Step 8 ｜ 资金曲线可视化
-
-### 8.1 构建什么
-
-#### 8.1.1 数据采集
-
-新增 `EquityRecorder`，订阅 `EVENT_ACCOUNT` + `EVENT_TRADE`，每收到一次就 append 到 `data/equity.csv`：
-
-```csv
-timestamp,balance,available,frozen,position_value,total_equity
-2026-09-23 09:35:01,1000000.00,950000.00,50000.00,120000.00,1070000.00
-```
-
-#### 8.1.2 实时曲线（盘后看 / Web 看板）
-
-用 `plotly` + `dash`，或简单的 `matplotlib` + 定时刷新 PNG：
-
-```python
-import matplotlib.pyplot as plt
-import pandas as pd
-from datetime import datetime
-
-df = pd.read_csv("data/equity.csv", parse_dates=["timestamp"])
-df["drawdown"] = df["total_equity"] / df["total_equity"].cummax() - 1
-
-fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(12, 6), sharex=True,
-                                gridspec_kw={"height_ratios": [2, 1]})
-ax1.plot(df["timestamp"], df["total_equity"], label="Total Equity")
-ax1.fill_between(df["timestamp"], df["total_equity"], df["total_equity"].cummax(),
-                 alpha=0.1, color="green")
-ax1.legend()
-ax2.fill_between(df["timestamp"], df["drawdown"], 0, alpha=0.4, color="red")
-ax2.set_ylabel("Drawdown")
-plt.tight_layout()
-plt.savefig("data/equity_curve.png", dpi=150)
-```
-
-#### 8.1.3 进阶（可选）
-
-- 回测 + 实盘**同一张图**：用 vnpy 的 `BacktesterEngine.calculate_result()` 的 df 拼到一起
-- 用 `dataviz` skill 输出交互式 HTML（hover 看逐笔成交）
-
-### 8.2 理解什么
-
-- **资金曲线 ≠ 累计盈亏**：要算"持仓市值 + 可用 + 冻结"
-- **回撤 = peak-to-trough**：最大回撤、夏普、Calmar 是 3 个最值得看的指标
-- **可视化是验证系统的眼睛**：没有它你不知道策略到底赚没赚钱
-
-### 8.3 验收
-
-- 运行 24 小时后，`equity.csv` 至少有 ~2880 行（每 30 秒一次）
-- `equity_curve.png` 上能看到清晰的资金曲线 + 阴影回撤区
-- 对比 `calculate_statistics()` 的夏普 vs 曲线肉眼判断，**两者方向必须一致**
-
----
-
-## Step 9 ｜ 用 vnpy 现成抽象替换自研代码
+## Step 8 ｜ 用 vnpy 现成抽象替换自研代码
 
 > 走到这一步，你已经把 vnpy 内部每一层都"重造过轮子"。现在才有资格说"我会用 vnpy 了"。
 
-### 9.1 替换映射表
+### 8.1 替换映射表
 
 | 自研（Demo 里写的） | vnpy 现成 | 替换要点 |
 |---|---|---|
@@ -493,24 +440,22 @@ plt.savefig("data/equity_curve.png", dpi=150)
 | `CtaTemplate` | `vnpy.app.cta_strategy.template.CtaTemplate` | 把 `from ... import CtaTemplate` 改一下，策略 0 改动 |
 | `CtaEngine` | `vnpy.app.cta_strategy.engine.CtaEngine` | 替换类名 |
 | 自写 BarGenerator | `vnpy.trader.utility.BarGenerator` | vnpy 版本支持任意 interval + 嵌套（1m→5m→日） |
-| 自写 EquityRecorder | `vnpy.app.data_manager` + `vnpy.app.recorder` | 直接落 SQLite |
 | 自写回测 | `vnpy.app.cta_strategy.backtesting.BacktestingEngine` | 已经在 Step 6 用过了 |
 
-### 9.2 替换流程（按风险顺序）
+### 8.2 替换流程（按风险顺序）
 
 1. **先替换 EventEngine / MainEngine**：接口几乎一致，一行 import 改完
 2. **再替换 CtpGateway**：vnpy_ctp 版本可能要求不同的 connect 设置
 3. **最后替换 CtaEngine / CtaTemplate**：策略代码几乎不用动，主要是 engine 初始化方式
-4. **保留你的 EquityRecorder**：vnpy 没现成"持久化资金曲线到 CSV"的组件，自己写的更可控
 
-### 9.3 验收
+### 8.3 验收
 
 - `Demo/run_vnpy.py` 用 100% vnpy 现成 API 跑通
 - 双均线策略 0 改动即可工作
 - 对比 `Demo/run.py`（自研）vs `Demo/run_vnpy.py`（vnpy）的代码量：后者应**短 60% 以上**
 - 7×24 跑 48 小时，无 crash
 
-### 9.4 必读源码（按顺序）
+### 8.4 必读源码（按顺序）
 
 1. `vnpy/trader/event_engine.py`（110 行，10 分钟）
 2. `vnpy/trader/engine.py` 的 `MainEngine`（300 行，30 分钟）
@@ -532,11 +477,10 @@ plt.savefig("data/equity_curve.png", dpi=150)
 | 3 | MainEngine | 0.5 天 | `main_engine.py` |
 | 4 | CtaTemplate | 0.5 天 | `cta_template.py` |
 | 5 | CtaEngine + 双均线 | 1 天 | 双均线策略实盘 demo |
-| 6 | 回测 | 1-2 天 | 优化报告 + 资金曲线 |
-| 7 | 7×24 工程化 | 0.5 天 | supervisor + 日志 + 自愈 |
-| 8 | 资金曲线可视化 | 0.5 天 | equity.csv + PNG 看板 |
-| 9 | 替换为 vnpy 现成 | 1 天 | 全部 import vnpy |
-| **合计** | | **6-7 天** | **生产级交易系统** |
+| 6 | 回测 | 1-2 天 | 优化报告 + `show_chart()` 资金曲线 |
+| 7 | 7×24 工程化 + 资金监控 | 0.5-1 天 | supervisor + 日志 + 自愈 + `veighna` GUI |
+| 8 | 替换为 vnpy 现成 | 1 天 | 全部 import vnpy |
+| **合计** | | **5.5-6.5 天** | **生产级交易系统** |
 
 ---
 
@@ -557,6 +501,5 @@ plt.savefig("data/equity_curve.png", dpi=150)
 
 - **多策略 + 组合**：CtaEngine 支持多策略实例，但要解决策略间互相成交的归属问题
 - **风控层**：单独一个 RiskEngine，订阅所有 order/trade，做"单笔超限 / 日内亏损熔断"
-- **数据层**：从 CSV → SQLite → TimescaleDB，EquityRecorder 自然落库
+- **数据层**：从 CSV → SQLite → TimescaleDB，用 vnpy `Recorder` app 或自己写 ≤50 行落库
 - **多账户 / 多通道**：1 个 MainEngine + N 个 Gateway，跑 多个 CTP 账号（vnpy 原生支持）
-- **Web 看板**：vnpy 内置 VeighNa Trader（PyQt5），或者自己用 FastAPI + WebSocket 推 equity 数据
