@@ -1,0 +1,996 @@
+2026-09-23 19:00:42.095 | ERROR   | __main__:main:203 - ❌ 主循环异常: CtaStrategyApp 没装上
+Traceback (most recent call last):
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 218, in <module>
+    main()
+    └ <function main at 0x7aea7a17e340>
+
+> File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 181, in main
+    parts = bootstrap()
+            └ <function bootstrap at 0x7aea7a17e200>
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 126, in bootstrap
+    raise RuntimeError("CtaStrategyApp 没装上")
+
+RuntimeError: CtaStrategyApp 没装上
+
+Traceback (most recent call last):
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 218, in <module>
+    main()
+    └ <function main at 0x7aea7a17e340>
+
+> File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 181, in main
+    parts = bootstrap()
+            └ <function bootstrap at 0x7aea7a17e200>
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 126, in bootstrap
+    raise RuntimeError("CtaStrategyApp 没装上")
+
+RuntimeError: CtaStrategyApp 没装上
+2026-09-23 19:03:49.109 | ERROR   | __main__:main:201 - ❌ 主循环异常: '经纪商代码'
+Traceback (most recent call last):
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 216, in <module>
+    main()
+    └ <function main at 0x752de7926200>
+
+> File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 179, in main
+    parts = bootstrap()
+            └ <function bootstrap at 0x752de79260c0>
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 128, in bootstrap
+    me.connect(setting, "CTP")
+    │  │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │  └ <function MainEngine.connect at 0x752de7de8360>
+    └ <vnpy.trader.engine.MainEngine object at 0x752de7931400>
+
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy/trader/engine.py", line 242, in connect
+    gateway.connect(setting)
+    │       │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │       └ <function CtpGateway.connect at 0x752de7deb7e0>
+    └ <vnpy_ctp.gateway.ctp_gateway.CtpGateway object at 0x752de7931a90>
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy_ctp/gateway/ctp_gateway.py", line 168, in connect
+    brokerid: str = setting["经纪商代码"]
+                    └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+
+KeyError: '经纪商代码'
+
+Traceback (most recent call last):
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 216, in <module>
+    main()
+    └ <function main at 0x752de7926200>
+
+> File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 179, in main
+    parts = bootstrap()
+            └ <function bootstrap at 0x752de79260c0>
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 128, in bootstrap
+    me.connect(setting, "CTP")
+    │  │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │  └ <function MainEngine.connect at 0x752de7de8360>
+    └ <vnpy.trader.engine.MainEngine object at 0x752de7931400>
+
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy/trader/engine.py", line 242, in connect
+    gateway.connect(setting)
+    │       │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │       └ <function CtpGateway.connect at 0x752de7deb7e0>
+    └ <vnpy_ctp.gateway.ctp_gateway.CtpGateway object at 0x752de7931a90>
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy_ctp/gateway/ctp_gateway.py", line 168, in connect
+    brokerid: str = setting["经纪商代码"]
+                    └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+
+KeyError: '经纪商代码'
+2026-09-23 19:03:59.115 | ERROR   | __main__:main:201 - ❌ 主循环异常: '经纪商代码'
+Traceback (most recent call last):
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 216, in <module>
+    main()
+    └ <function main at 0x752de7926200>
+
+> File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 179, in main
+    parts = bootstrap()
+            └ <function bootstrap at 0x752de79260c0>
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 128, in bootstrap
+    me.connect(setting, "CTP")
+    │  │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │  └ <function MainEngine.connect at 0x752de7de8360>
+    └ <vnpy.trader.engine.MainEngine object at 0x752de6bda850>
+
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy/trader/engine.py", line 242, in connect
+    gateway.connect(setting)
+    │       │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │       └ <function CtpGateway.connect at 0x752de7deb7e0>
+    └ <vnpy_ctp.gateway.ctp_gateway.CtpGateway object at 0x752de6bdad50>
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy_ctp/gateway/ctp_gateway.py", line 168, in connect
+    brokerid: str = setting["经纪商代码"]
+                    └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+
+KeyError: '经纪商代码'
+
+Traceback (most recent call last):
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 216, in <module>
+    main()
+    └ <function main at 0x752de7926200>
+
+> File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 179, in main
+    parts = bootstrap()
+            └ <function bootstrap at 0x752de79260c0>
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 128, in bootstrap
+    me.connect(setting, "CTP")
+    │  │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │  └ <function MainEngine.connect at 0x752de7de8360>
+    └ <vnpy.trader.engine.MainEngine object at 0x752de6bda850>
+
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy/trader/engine.py", line 242, in connect
+    gateway.connect(setting)
+    │       │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │       └ <function CtpGateway.connect at 0x752de7deb7e0>
+    └ <vnpy_ctp.gateway.ctp_gateway.CtpGateway object at 0x752de6bdad50>
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy_ctp/gateway/ctp_gateway.py", line 168, in connect
+    brokerid: str = setting["经纪商代码"]
+                    └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+
+KeyError: '经纪商代码'
+2026-09-23 19:04:09.118 | ERROR   | __main__:main:201 - ❌ 主循环异常: '经纪商代码'
+Traceback (most recent call last):
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 216, in <module>
+    main()
+    └ <function main at 0x752de7926200>
+
+> File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 179, in main
+    parts = bootstrap()
+            └ <function bootstrap at 0x752de79260c0>
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 128, in bootstrap
+    me.connect(setting, "CTP")
+    │  │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │  └ <function MainEngine.connect at 0x752de7de8360>
+    └ <vnpy.trader.engine.MainEngine object at 0x752de6bdb390>
+
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy/trader/engine.py", line 242, in connect
+    gateway.connect(setting)
+    │       │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │       └ <function CtpGateway.connect at 0x752de7deb7e0>
+    └ <vnpy_ctp.gateway.ctp_gateway.CtpGateway object at 0x752de6bdbb10>
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy_ctp/gateway/ctp_gateway.py", line 168, in connect
+    brokerid: str = setting["经纪商代码"]
+                    └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+
+KeyError: '经纪商代码'
+
+Traceback (most recent call last):
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 216, in <module>
+    main()
+    └ <function main at 0x752de7926200>
+
+> File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 179, in main
+    parts = bootstrap()
+            └ <function bootstrap at 0x752de79260c0>
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 128, in bootstrap
+    me.connect(setting, "CTP")
+    │  │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │  └ <function MainEngine.connect at 0x752de7de8360>
+    └ <vnpy.trader.engine.MainEngine object at 0x752de6bdb390>
+
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy/trader/engine.py", line 242, in connect
+    gateway.connect(setting)
+    │       │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │       └ <function CtpGateway.connect at 0x752de7deb7e0>
+    └ <vnpy_ctp.gateway.ctp_gateway.CtpGateway object at 0x752de6bdbb10>
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy_ctp/gateway/ctp_gateway.py", line 168, in connect
+    brokerid: str = setting["经纪商代码"]
+                    └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+
+KeyError: '经纪商代码'
+2026-09-23 19:04:46.387 | ERROR   | __main__:main:201 - ❌ 主循环异常: '经纪商代码'
+Traceback (most recent call last):
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 216, in <module>
+    main()
+    └ <function main at 0x71568ad7e020>
+
+> File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 179, in main
+    parts = bootstrap()
+            └ <function bootstrap at 0x71568ad7dee0>
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 128, in bootstrap
+    me.connect(setting, "CTP")
+    │  │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │  └ <function MainEngine.connect at 0x71568b1f0180>
+    └ <vnpy.trader.engine.MainEngine object at 0x71568ad85400>
+
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy/trader/engine.py", line 242, in connect
+    gateway.connect(setting)
+    │       │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │       └ <function CtpGateway.connect at 0x71568b1f3600>
+    └ <vnpy_ctp.gateway.ctp_gateway.CtpGateway object at 0x71568ad85a90>
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy_ctp/gateway/ctp_gateway.py", line 168, in connect
+    brokerid: str = setting["经纪商代码"]
+                    └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+
+KeyError: '经纪商代码'
+
+Traceback (most recent call last):
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 216, in <module>
+    main()
+    └ <function main at 0x71568ad7e020>
+
+> File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 179, in main
+    parts = bootstrap()
+            └ <function bootstrap at 0x71568ad7dee0>
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 128, in bootstrap
+    me.connect(setting, "CTP")
+    │  │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │  └ <function MainEngine.connect at 0x71568b1f0180>
+    └ <vnpy.trader.engine.MainEngine object at 0x71568ad85400>
+
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy/trader/engine.py", line 242, in connect
+    gateway.connect(setting)
+    │       │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │       └ <function CtpGateway.connect at 0x71568b1f3600>
+    └ <vnpy_ctp.gateway.ctp_gateway.CtpGateway object at 0x71568ad85a90>
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy_ctp/gateway/ctp_gateway.py", line 168, in connect
+    brokerid: str = setting["经纪商代码"]
+                    └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+
+KeyError: '经纪商代码'
+2026-09-23 19:04:56.390 | ERROR   | __main__:main:201 - ❌ 主循环异常: '经纪商代码'
+Traceback (most recent call last):
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 216, in <module>
+    main()
+    └ <function main at 0x71568ad7e020>
+
+> File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 179, in main
+    parts = bootstrap()
+            └ <function bootstrap at 0x71568ad7dee0>
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 128, in bootstrap
+    me.connect(setting, "CTP")
+    │  │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │  └ <function MainEngine.connect at 0x71568b1f0180>
+    └ <vnpy.trader.engine.MainEngine object at 0x715689fe6850>
+
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy/trader/engine.py", line 242, in connect
+    gateway.connect(setting)
+    │       │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │       └ <function CtpGateway.connect at 0x71568b1f3600>
+    └ <vnpy_ctp.gateway.ctp_gateway.CtpGateway object at 0x715689fe6d50>
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy_ctp/gateway/ctp_gateway.py", line 168, in connect
+    brokerid: str = setting["经纪商代码"]
+                    └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+
+KeyError: '经纪商代码'
+
+Traceback (most recent call last):
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 216, in <module>
+    main()
+    └ <function main at 0x71568ad7e020>
+
+> File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 179, in main
+    parts = bootstrap()
+            └ <function bootstrap at 0x71568ad7dee0>
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 128, in bootstrap
+    me.connect(setting, "CTP")
+    │  │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │  └ <function MainEngine.connect at 0x71568b1f0180>
+    └ <vnpy.trader.engine.MainEngine object at 0x715689fe6850>
+
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy/trader/engine.py", line 242, in connect
+    gateway.connect(setting)
+    │       │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │       └ <function CtpGateway.connect at 0x71568b1f3600>
+    └ <vnpy_ctp.gateway.ctp_gateway.CtpGateway object at 0x715689fe6d50>
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy_ctp/gateway/ctp_gateway.py", line 168, in connect
+    brokerid: str = setting["经纪商代码"]
+                    └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+
+KeyError: '经纪商代码'
+2026-09-23 19:05:06.393 | ERROR   | __main__:main:201 - ❌ 主循环异常: '经纪商代码'
+Traceback (most recent call last):
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 216, in <module>
+    main()
+    └ <function main at 0x71568ad7e020>
+
+> File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 179, in main
+    parts = bootstrap()
+            └ <function bootstrap at 0x71568ad7dee0>
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 128, in bootstrap
+    me.connect(setting, "CTP")
+    │  │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │  └ <function MainEngine.connect at 0x71568b1f0180>
+    └ <vnpy.trader.engine.MainEngine object at 0x715689fe7390>
+
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy/trader/engine.py", line 242, in connect
+    gateway.connect(setting)
+    │       │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │       └ <function CtpGateway.connect at 0x71568b1f3600>
+    └ <vnpy_ctp.gateway.ctp_gateway.CtpGateway object at 0x715689fe7750>
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy_ctp/gateway/ctp_gateway.py", line 168, in connect
+    brokerid: str = setting["经纪商代码"]
+                    └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+
+KeyError: '经纪商代码'
+
+Traceback (most recent call last):
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 216, in <module>
+    main()
+    └ <function main at 0x71568ad7e020>
+
+> File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 179, in main
+    parts = bootstrap()
+            └ <function bootstrap at 0x71568ad7dee0>
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 128, in bootstrap
+    me.connect(setting, "CTP")
+    │  │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │  └ <function MainEngine.connect at 0x71568b1f0180>
+    └ <vnpy.trader.engine.MainEngine object at 0x715689fe7390>
+
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy/trader/engine.py", line 242, in connect
+    gateway.connect(setting)
+    │       │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │       └ <function CtpGateway.connect at 0x71568b1f3600>
+    └ <vnpy_ctp.gateway.ctp_gateway.CtpGateway object at 0x715689fe7750>
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy_ctp/gateway/ctp_gateway.py", line 168, in connect
+    brokerid: str = setting["经纪商代码"]
+                    └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+
+KeyError: '经纪商代码'
+2026-09-23 19:05:16.395 | ERROR   | __main__:main:201 - ❌ 主循环异常: '经纪商代码'
+Traceback (most recent call last):
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 216, in <module>
+    main()
+    └ <function main at 0x71568ad7e020>
+
+> File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 179, in main
+    parts = bootstrap()
+            └ <function bootstrap at 0x71568ad7dee0>
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 128, in bootstrap
+    me.connect(setting, "CTP")
+    │  │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │  └ <function MainEngine.connect at 0x71568b1f0180>
+    └ <vnpy.trader.engine.MainEngine object at 0x715689fd55b0>
+
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy/trader/engine.py", line 242, in connect
+    gateway.connect(setting)
+    │       │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │       └ <function CtpGateway.connect at 0x71568b1f3600>
+    └ <vnpy_ctp.gateway.ctp_gateway.CtpGateway object at 0x715689fd7100>
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy_ctp/gateway/ctp_gateway.py", line 168, in connect
+    brokerid: str = setting["经纪商代码"]
+                    └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+
+KeyError: '经纪商代码'
+
+Traceback (most recent call last):
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 216, in <module>
+    main()
+    └ <function main at 0x71568ad7e020>
+
+> File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 179, in main
+    parts = bootstrap()
+            └ <function bootstrap at 0x71568ad7dee0>
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 128, in bootstrap
+    me.connect(setting, "CTP")
+    │  │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │  └ <function MainEngine.connect at 0x71568b1f0180>
+    └ <vnpy.trader.engine.MainEngine object at 0x715689fd55b0>
+
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy/trader/engine.py", line 242, in connect
+    gateway.connect(setting)
+    │       │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │       └ <function CtpGateway.connect at 0x71568b1f3600>
+    └ <vnpy_ctp.gateway.ctp_gateway.CtpGateway object at 0x715689fd7100>
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy_ctp/gateway/ctp_gateway.py", line 168, in connect
+    brokerid: str = setting["经纪商代码"]
+                    └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+
+KeyError: '经纪商代码'
+2026-09-23 19:05:26.398 | ERROR   | __main__:main:201 - ❌ 主循环异常: '经纪商代码'
+Traceback (most recent call last):
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 216, in <module>
+    main()
+    └ <function main at 0x71568ad7e020>
+
+> File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 179, in main
+    parts = bootstrap()
+            └ <function bootstrap at 0x71568ad7dee0>
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 128, in bootstrap
+    me.connect(setting, "CTP")
+    │  │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │  └ <function MainEngine.connect at 0x71568b1f0180>
+    └ <vnpy.trader.engine.MainEngine object at 0x715688224510>
+
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy/trader/engine.py", line 242, in connect
+    gateway.connect(setting)
+    │       │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │       └ <function CtpGateway.connect at 0x71568b1f3600>
+    └ <vnpy_ctp.gateway.ctp_gateway.CtpGateway object at 0x715688224b00>
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy_ctp/gateway/ctp_gateway.py", line 168, in connect
+    brokerid: str = setting["经纪商代码"]
+                    └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+
+KeyError: '经纪商代码'
+
+Traceback (most recent call last):
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 216, in <module>
+    main()
+    └ <function main at 0x71568ad7e020>
+
+> File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 179, in main
+    parts = bootstrap()
+            └ <function bootstrap at 0x71568ad7dee0>
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 128, in bootstrap
+    me.connect(setting, "CTP")
+    │  │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │  └ <function MainEngine.connect at 0x71568b1f0180>
+    └ <vnpy.trader.engine.MainEngine object at 0x715688224510>
+
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy/trader/engine.py", line 242, in connect
+    gateway.connect(setting)
+    │       │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │       └ <function CtpGateway.connect at 0x71568b1f3600>
+    └ <vnpy_ctp.gateway.ctp_gateway.CtpGateway object at 0x715688224b00>
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy_ctp/gateway/ctp_gateway.py", line 168, in connect
+    brokerid: str = setting["经纪商代码"]
+                    └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+
+KeyError: '经纪商代码'
+2026-09-23 19:05:36.400 | ERROR   | __main__:main:201 - ❌ 主循环异常: '经纪商代码'
+Traceback (most recent call last):
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 216, in <module>
+    main()
+    └ <function main at 0x71568ad7e020>
+
+> File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 179, in main
+    parts = bootstrap()
+            └ <function bootstrap at 0x71568ad7dee0>
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 128, in bootstrap
+    me.connect(setting, "CTP")
+    │  │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │  └ <function MainEngine.connect at 0x71568b1f0180>
+    └ <vnpy.trader.engine.MainEngine object at 0x715689fc03b0>
+
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy/trader/engine.py", line 242, in connect
+    gateway.connect(setting)
+    │       │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │       └ <function CtpGateway.connect at 0x71568b1f3600>
+    └ <vnpy_ctp.gateway.ctp_gateway.CtpGateway object at 0x715689fc0170>
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy_ctp/gateway/ctp_gateway.py", line 168, in connect
+    brokerid: str = setting["经纪商代码"]
+                    └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+
+KeyError: '经纪商代码'
+
+Traceback (most recent call last):
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 216, in <module>
+    main()
+    └ <function main at 0x71568ad7e020>
+
+> File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 179, in main
+    parts = bootstrap()
+            └ <function bootstrap at 0x71568ad7dee0>
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 128, in bootstrap
+    me.connect(setting, "CTP")
+    │  │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │  └ <function MainEngine.connect at 0x71568b1f0180>
+    └ <vnpy.trader.engine.MainEngine object at 0x715689fc03b0>
+
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy/trader/engine.py", line 242, in connect
+    gateway.connect(setting)
+    │       │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │       └ <function CtpGateway.connect at 0x71568b1f3600>
+    └ <vnpy_ctp.gateway.ctp_gateway.CtpGateway object at 0x715689fc0170>
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy_ctp/gateway/ctp_gateway.py", line 168, in connect
+    brokerid: str = setting["经纪商代码"]
+                    └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+
+KeyError: '经纪商代码'
+2026-09-23 19:05:46.403 | ERROR   | __main__:main:201 - ❌ 主循环异常: '经纪商代码'
+Traceback (most recent call last):
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 216, in <module>
+    main()
+    └ <function main at 0x71568ad7e020>
+
+> File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 179, in main
+    parts = bootstrap()
+            └ <function bootstrap at 0x71568ad7dee0>
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 128, in bootstrap
+    me.connect(setting, "CTP")
+    │  │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │  └ <function MainEngine.connect at 0x71568b1f0180>
+    └ <vnpy.trader.engine.MainEngine object at 0x71568a0303b0>
+
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy/trader/engine.py", line 242, in connect
+    gateway.connect(setting)
+    │       │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │       └ <function CtpGateway.connect at 0x71568b1f3600>
+    └ <vnpy_ctp.gateway.ctp_gateway.CtpGateway object at 0x715689fa6f10>
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy_ctp/gateway/ctp_gateway.py", line 168, in connect
+    brokerid: str = setting["经纪商代码"]
+                    └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+
+KeyError: '经纪商代码'
+
+Traceback (most recent call last):
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 216, in <module>
+    main()
+    └ <function main at 0x71568ad7e020>
+
+> File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 179, in main
+    parts = bootstrap()
+            └ <function bootstrap at 0x71568ad7dee0>
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 128, in bootstrap
+    me.connect(setting, "CTP")
+    │  │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │  └ <function MainEngine.connect at 0x71568b1f0180>
+    └ <vnpy.trader.engine.MainEngine object at 0x71568a0303b0>
+
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy/trader/engine.py", line 242, in connect
+    gateway.connect(setting)
+    │       │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │       └ <function CtpGateway.connect at 0x71568b1f3600>
+    └ <vnpy_ctp.gateway.ctp_gateway.CtpGateway object at 0x715689fa6f10>
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy_ctp/gateway/ctp_gateway.py", line 168, in connect
+    brokerid: str = setting["经纪商代码"]
+                    └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+
+KeyError: '经纪商代码'
+2026-09-23 19:05:56.405 | ERROR   | __main__:main:201 - ❌ 主循环异常: '经纪商代码'
+Traceback (most recent call last):
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 216, in <module>
+    main()
+    └ <function main at 0x71568ad7e020>
+
+> File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 179, in main
+    parts = bootstrap()
+            └ <function bootstrap at 0x71568ad7dee0>
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 128, in bootstrap
+    me.connect(setting, "CTP")
+    │  │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │  └ <function MainEngine.connect at 0x71568b1f0180>
+    └ <vnpy.trader.engine.MainEngine object at 0x71568a030710>
+
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy/trader/engine.py", line 242, in connect
+    gateway.connect(setting)
+    │       │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │       └ <function CtpGateway.connect at 0x71568b1f3600>
+    └ <vnpy_ctp.gateway.ctp_gateway.CtpGateway object at 0x71568a009480>
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy_ctp/gateway/ctp_gateway.py", line 168, in connect
+    brokerid: str = setting["经纪商代码"]
+                    └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+
+KeyError: '经纪商代码'
+
+Traceback (most recent call last):
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 216, in <module>
+    main()
+    └ <function main at 0x71568ad7e020>
+
+> File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 179, in main
+    parts = bootstrap()
+            └ <function bootstrap at 0x71568ad7dee0>
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 128, in bootstrap
+    me.connect(setting, "CTP")
+    │  │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │  └ <function MainEngine.connect at 0x71568b1f0180>
+    └ <vnpy.trader.engine.MainEngine object at 0x71568a030710>
+
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy/trader/engine.py", line 242, in connect
+    gateway.connect(setting)
+    │       │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │       └ <function CtpGateway.connect at 0x71568b1f3600>
+    └ <vnpy_ctp.gateway.ctp_gateway.CtpGateway object at 0x71568a009480>
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy_ctp/gateway/ctp_gateway.py", line 168, in connect
+    brokerid: str = setting["经纪商代码"]
+                    └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+
+KeyError: '经纪商代码'
+2026-09-23 19:06:06.407 | ERROR   | __main__:main:201 - ❌ 主循环异常: '经纪商代码'
+Traceback (most recent call last):
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 216, in <module>
+    main()
+    └ <function main at 0x71568ad7e020>
+
+> File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 179, in main
+    parts = bootstrap()
+            └ <function bootstrap at 0x71568ad7dee0>
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 128, in bootstrap
+    me.connect(setting, "CTP")
+    │  │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │  └ <function MainEngine.connect at 0x71568b1f0180>
+    └ <vnpy.trader.engine.MainEngine object at 0x71568a030a70>
+
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy/trader/engine.py", line 242, in connect
+    gateway.connect(setting)
+    │       │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │       └ <function CtpGateway.connect at 0x71568b1f3600>
+    └ <vnpy_ctp.gateway.ctp_gateway.CtpGateway object at 0x715689fc4750>
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy_ctp/gateway/ctp_gateway.py", line 168, in connect
+    brokerid: str = setting["经纪商代码"]
+                    └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+
+KeyError: '经纪商代码'
+
+Traceback (most recent call last):
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 216, in <module>
+    main()
+    └ <function main at 0x71568ad7e020>
+
+> File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 179, in main
+    parts = bootstrap()
+            └ <function bootstrap at 0x71568ad7dee0>
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 128, in bootstrap
+    me.connect(setting, "CTP")
+    │  │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │  └ <function MainEngine.connect at 0x71568b1f0180>
+    └ <vnpy.trader.engine.MainEngine object at 0x71568a030a70>
+
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy/trader/engine.py", line 242, in connect
+    gateway.connect(setting)
+    │       │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │       └ <function CtpGateway.connect at 0x71568b1f3600>
+    └ <vnpy_ctp.gateway.ctp_gateway.CtpGateway object at 0x715689fc4750>
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy_ctp/gateway/ctp_gateway.py", line 168, in connect
+    brokerid: str = setting["经纪商代码"]
+                    └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+
+KeyError: '经纪商代码'
+2026-09-23 19:06:16.410 | ERROR   | __main__:main:201 - ❌ 主循环异常: '经纪商代码'
+Traceback (most recent call last):
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 216, in <module>
+    main()
+    └ <function main at 0x71568ad7e020>
+
+> File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 179, in main
+    parts = bootstrap()
+            └ <function bootstrap at 0x71568ad7dee0>
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 128, in bootstrap
+    me.connect(setting, "CTP")
+    │  │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │  └ <function MainEngine.connect at 0x71568b1f0180>
+    └ <vnpy.trader.engine.MainEngine object at 0x71568a030dd0>
+
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy/trader/engine.py", line 242, in connect
+    gateway.connect(setting)
+    │       │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │       └ <function CtpGateway.connect at 0x71568b1f3600>
+    └ <vnpy_ctp.gateway.ctp_gateway.CtpGateway object at 0x715689fc6f50>
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy_ctp/gateway/ctp_gateway.py", line 168, in connect
+    brokerid: str = setting["经纪商代码"]
+                    └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+
+KeyError: '经纪商代码'
+
+Traceback (most recent call last):
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 216, in <module>
+    main()
+    └ <function main at 0x71568ad7e020>
+
+> File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 179, in main
+    parts = bootstrap()
+            └ <function bootstrap at 0x71568ad7dee0>
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 128, in bootstrap
+    me.connect(setting, "CTP")
+    │  │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │  └ <function MainEngine.connect at 0x71568b1f0180>
+    └ <vnpy.trader.engine.MainEngine object at 0x71568a030dd0>
+
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy/trader/engine.py", line 242, in connect
+    gateway.connect(setting)
+    │       │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │       └ <function CtpGateway.connect at 0x71568b1f3600>
+    └ <vnpy_ctp.gateway.ctp_gateway.CtpGateway object at 0x715689fc6f50>
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy_ctp/gateway/ctp_gateway.py", line 168, in connect
+    brokerid: str = setting["经纪商代码"]
+                    └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+
+KeyError: '经纪商代码'
+2026-09-23 19:06:26.412 | ERROR   | __main__:main:201 - ❌ 主循环异常: '经纪商代码'
+Traceback (most recent call last):
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 216, in <module>
+    main()
+    └ <function main at 0x71568ad7e020>
+
+> File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 179, in main
+    parts = bootstrap()
+            └ <function bootstrap at 0x71568ad7dee0>
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 128, in bootstrap
+    me.connect(setting, "CTP")
+    │  │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │  └ <function MainEngine.connect at 0x71568b1f0180>
+    └ <vnpy.trader.engine.MainEngine object at 0x715689f63650>
+
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy/trader/engine.py", line 242, in connect
+    gateway.connect(setting)
+    │       │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │       └ <function CtpGateway.connect at 0x71568b1f3600>
+    └ <vnpy_ctp.gateway.ctp_gateway.CtpGateway object at 0x715688249e50>
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy_ctp/gateway/ctp_gateway.py", line 168, in connect
+    brokerid: str = setting["经纪商代码"]
+                    └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+
+KeyError: '经纪商代码'
+
+Traceback (most recent call last):
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 216, in <module>
+    main()
+    └ <function main at 0x71568ad7e020>
+
+> File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 179, in main
+    parts = bootstrap()
+            └ <function bootstrap at 0x71568ad7dee0>
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 128, in bootstrap
+    me.connect(setting, "CTP")
+    │  │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │  └ <function MainEngine.connect at 0x71568b1f0180>
+    └ <vnpy.trader.engine.MainEngine object at 0x715689f63650>
+
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy/trader/engine.py", line 242, in connect
+    gateway.connect(setting)
+    │       │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │       └ <function CtpGateway.connect at 0x71568b1f3600>
+    └ <vnpy_ctp.gateway.ctp_gateway.CtpGateway object at 0x715688249e50>
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy_ctp/gateway/ctp_gateway.py", line 168, in connect
+    brokerid: str = setting["经纪商代码"]
+                    └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+
+KeyError: '经纪商代码'
+2026-09-23 19:06:36.415 | ERROR   | __main__:main:201 - ❌ 主循环异常: '经纪商代码'
+Traceback (most recent call last):
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 216, in <module>
+    main()
+    └ <function main at 0x71568ad7e020>
+
+> File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 179, in main
+    parts = bootstrap()
+            └ <function bootstrap at 0x71568ad7dee0>
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 128, in bootstrap
+    me.connect(setting, "CTP")
+    │  │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │  └ <function MainEngine.connect at 0x71568b1f0180>
+    └ <vnpy.trader.engine.MainEngine object at 0x71568a031250>
+
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy/trader/engine.py", line 242, in connect
+    gateway.connect(setting)
+    │       │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │       └ <function CtpGateway.connect at 0x71568b1f3600>
+    └ <vnpy_ctp.gateway.ctp_gateway.CtpGateway object at 0x71568824b6b0>
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy_ctp/gateway/ctp_gateway.py", line 168, in connect
+    brokerid: str = setting["经纪商代码"]
+                    └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+
+KeyError: '经纪商代码'
+
+Traceback (most recent call last):
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 216, in <module>
+    main()
+    └ <function main at 0x71568ad7e020>
+
+> File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 179, in main
+    parts = bootstrap()
+            └ <function bootstrap at 0x71568ad7dee0>
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 128, in bootstrap
+    me.connect(setting, "CTP")
+    │  │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │  └ <function MainEngine.connect at 0x71568b1f0180>
+    └ <vnpy.trader.engine.MainEngine object at 0x71568a031250>
+
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy/trader/engine.py", line 242, in connect
+    gateway.connect(setting)
+    │       │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │       └ <function CtpGateway.connect at 0x71568b1f3600>
+    └ <vnpy_ctp.gateway.ctp_gateway.CtpGateway object at 0x71568824b6b0>
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy_ctp/gateway/ctp_gateway.py", line 168, in connect
+    brokerid: str = setting["经纪商代码"]
+                    └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+
+KeyError: '经纪商代码'
+2026-09-23 19:06:46.418 | ERROR   | __main__:main:201 - ❌ 主循环异常: '经纪商代码'
+Traceback (most recent call last):
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 216, in <module>
+    main()
+    └ <function main at 0x71568ad7e020>
+
+> File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 179, in main
+    parts = bootstrap()
+            └ <function bootstrap at 0x71568ad7dee0>
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 128, in bootstrap
+    me.connect(setting, "CTP")
+    │  │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │  └ <function MainEngine.connect at 0x71568b1f0180>
+    └ <vnpy.trader.engine.MainEngine object at 0x71568a0315b0>
+
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy/trader/engine.py", line 242, in connect
+    gateway.connect(setting)
+    │       │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │       └ <function CtpGateway.connect at 0x71568b1f3600>
+    └ <vnpy_ctp.gateway.ctp_gateway.CtpGateway object at 0x715689fab5b0>
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy_ctp/gateway/ctp_gateway.py", line 168, in connect
+    brokerid: str = setting["经纪商代码"]
+                    └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+
+KeyError: '经纪商代码'
+
+Traceback (most recent call last):
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 216, in <module>
+    main()
+    └ <function main at 0x71568ad7e020>
+
+> File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 179, in main
+    parts = bootstrap()
+            └ <function bootstrap at 0x71568ad7dee0>
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 128, in bootstrap
+    me.connect(setting, "CTP")
+    │  │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │  └ <function MainEngine.connect at 0x71568b1f0180>
+    └ <vnpy.trader.engine.MainEngine object at 0x71568a0315b0>
+
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy/trader/engine.py", line 242, in connect
+    gateway.connect(setting)
+    │       │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │       └ <function CtpGateway.connect at 0x71568b1f3600>
+    └ <vnpy_ctp.gateway.ctp_gateway.CtpGateway object at 0x715689fab5b0>
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy_ctp/gateway/ctp_gateway.py", line 168, in connect
+    brokerid: str = setting["经纪商代码"]
+                    └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+
+KeyError: '经纪商代码'
+2026-09-23 19:06:56.421 | ERROR   | __main__:main:201 - ❌ 主循环异常: '经纪商代码'
+Traceback (most recent call last):
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 216, in <module>
+    main()
+    └ <function main at 0x71568ad7e020>
+
+> File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 179, in main
+    parts = bootstrap()
+            └ <function bootstrap at 0x71568ad7dee0>
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 128, in bootstrap
+    me.connect(setting, "CTP")
+    │  │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │  └ <function MainEngine.connect at 0x71568b1f0180>
+    └ <vnpy.trader.engine.MainEngine object at 0x71568a031910>
+
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy/trader/engine.py", line 242, in connect
+    gateway.connect(setting)
+    │       │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │       └ <function CtpGateway.connect at 0x71568b1f3600>
+    └ <vnpy_ctp.gateway.ctp_gateway.CtpGateway object at 0x715688258210>
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy_ctp/gateway/ctp_gateway.py", line 168, in connect
+    brokerid: str = setting["经纪商代码"]
+                    └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+
+KeyError: '经纪商代码'
+
+Traceback (most recent call last):
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 216, in <module>
+    main()
+    └ <function main at 0x71568ad7e020>
+
+> File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 179, in main
+    parts = bootstrap()
+            └ <function bootstrap at 0x71568ad7dee0>
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 128, in bootstrap
+    me.connect(setting, "CTP")
+    │  │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │  └ <function MainEngine.connect at 0x71568b1f0180>
+    └ <vnpy.trader.engine.MainEngine object at 0x71568a031910>
+
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy/trader/engine.py", line 242, in connect
+    gateway.connect(setting)
+    │       │       └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+    │       └ <function CtpGateway.connect at 0x71568b1f3600>
+    └ <vnpy_ctp.gateway.ctp_gateway.CtpGateway object at 0x715688258210>
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy_ctp/gateway/ctp_gateway.py", line 168, in connect
+    brokerid: str = setting["经纪商代码"]
+                    └ {'用户名': 'groy', '密码': '用户昵称', '经纪公司代码': '9999', '交易服务器': 'tcp://182.254.243.31:40001', '行情服务器': 'tcp://182.254.243.31:40011',...
+
+KeyError: '经纪商代码'
+2026-09-23 19:07:16.183 | ERROR   | __main__:main:201 - ❌ 主循环异常: 'double_ma_au'
+Traceback (most recent call last):
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 216, in <module>
+    main()
+    └ <function main at 0x78fdc8376020>
+
+> File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 179, in main
+    parts = bootstrap()
+            └ <function bootstrap at 0x78fdc8375ee0>
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 145, in bootstrap
+    cta_engine.start_strategy(STRATEGY_NAME)
+    │          │              └ 'double_ma_au'
+    │          └ <function CtaEngine.start_strategy at 0x78fdc8374ae0>
+    └ <vnpy_ctastrategy.engine.CtaEngine object at 0x78fdc8385d30>
+
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy_ctastrategy/engine.py", line 712, in start_strategy
+    strategy: CtaTemplate = self.strategies[strategy_name]
+                            │    │          └ 'double_ma_au'
+                            │    └ {}
+                            └ <vnpy_ctastrategy.engine.CtaEngine object at 0x78fdc8385d30>
+
+KeyError: 'double_ma_au'
+
+Traceback (most recent call last):
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 216, in <module>
+    main()
+    └ <function main at 0x78fdc8376020>
+
+> File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 179, in main
+    parts = bootstrap()
+            └ <function bootstrap at 0x78fdc8375ee0>
+
+  File "/home/groy/quantllm/Demo/step8_vnpy/run.py", line 145, in bootstrap
+    cta_engine.start_strategy(STRATEGY_NAME)
+    │          │              └ 'double_ma_au'
+    │          └ <function CtaEngine.start_strategy at 0x78fdc8374ae0>
+    └ <vnpy_ctastrategy.engine.CtaEngine object at 0x78fdc8385d30>
+
+  File "/home/groy/miniconda3/envs/quantllm/lib/python3.13/site-packages/vnpy_ctastrategy/engine.py", line 712, in start_strategy
+    strategy: CtaTemplate = self.strategies[strategy_name]
+                            │    │          └ 'double_ma_au'
+                            │    └ {}
+                            └ <vnpy_ctastrategy.engine.CtaEngine object at 0x78fdc8385d30>
+
+KeyError: 'double_ma_au'
