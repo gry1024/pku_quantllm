@@ -1,0 +1,14 @@
+# 密码
+SIMNOW模拟平台账户密码.txt
+
+vnpy/
+
+vnpy_ctp/
+
+vnpy_ctastrategy/
+
+# 日志文件
+Demo/run.log
+Demo/flow/
+
+projects/
