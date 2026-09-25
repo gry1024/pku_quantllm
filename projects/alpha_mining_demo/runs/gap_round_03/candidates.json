@@ -1,0 +1,16 @@
+{
+  "g3_01": "ts_sum((open / ts_delay(close, 1) - 1) - (close / open - 1), 4)",
+  "g3_02": "ts_sum((open / ts_delay(close, 1) - 1) - (close / open - 1), 2)",
+  "g3_03": "ts_sum((open / ts_delay(close, 1) - 1) - (close / open - 1), 3) * cs_rank(turnover)",
+  "g3_04": "ts_sum((open / ts_delay(close, 1) - 1) - (close / open - 1), 4) * cs_rank(turnover)",
+  "g3_05": "ts_sum((open / ts_delay(close, 1) - 1) - (close / open - 1), 3) * cs_rank(turnover) * ts_mean(high / low - 1, 5)",
+  "g3_06": "-ts_sum(close / open - 1, 4)",
+  "g3_07": "-ts_sum(close / open - 1, 4) * cs_rank(turnover)",
+  "g3_08": "-ts_sum(close / open - 1, 4) * cs_rank(turnover) * ts_mean(high / low - 1, 5)",
+  "g3_09": "-ts_sum(close / open - 1, 3) * cs_rank(turnover) * ts_mean(high / low - 1, 5)",
+  "g3_10": "(cs_rank(ts_sum((open / ts_delay(close, 1) - 1) - (close / open - 1), 3)) + cs_rank(-ts_corr(close / ts_delay(close, 1) - 1, volume / ts_delay(volume, 1) - 1, 5))) / 2",
+  "g3_11": "(cs_rank(ts_sum((open / ts_delay(close, 1) - 1) - (close / open - 1), 3) * cs_rank(turnover) * ts_mean(high / low - 1, 5)) + cs_rank(-ts_corr(close / ts_delay(close, 1) - 1, volume / ts_delay(volume, 1) - 1, 5))) / 2",
+  "g3_12": "ts_sum(open / ts_delay(close, 1) - 1, 3) * (1 - cs_rank(turnover))",
+  "g3_13": "ts_sum(open / ts_delay(close, 1) - 1, 3) / (ts_sum(abs(close / ts_delay(close, 1) - 1), 3) + 1e-12)",
+  "g3_14": "ts_sum((open / ts_delay(close, 1) - 1) - (close / open - 1), 3) * ((close > ts_mean(close, 20)) > 0)"
+}

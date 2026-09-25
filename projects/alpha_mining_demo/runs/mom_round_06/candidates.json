@@ -1,0 +1,14 @@
+{
+  "m6_01": "-ts_corr(close / ts_delay(close, 1) - 1, volume / ts_delay(volume, 1) - 1, 5) * cs_rank(turnover) * ts_mean(high / low - 1, 10)",
+  "m6_02": "-ts_corr(close / ts_delay(close, 1) - 1, volume / ts_delay(volume, 1) - 1, 5) * cs_rank(turnover) * ts_mean(high / low - 1, 5)",
+  "m6_03": "-ts_corr(close / ts_delay(close, 1) - 1, volume / ts_delay(volume, 1) - 1, 5) * cs_rank(turnover)",
+  "m6_04": "-ts_corr(close / ts_delay(close, 1) - 1, volume / ts_delay(volume, 1) - 1, 5) * cs_rank(turnover) * ts_mean(high / low - 1, 15)",
+  "m6_05": "-ts_corr(close / ts_delay(close, 1) - 1, volume / ts_delay(volume, 1) - 1, 6) * cs_rank(turnover) * ts_mean(high / low - 1, 5)",
+  "m6_06": "-ts_corr(close / ts_delay(close, 1) - 1, volume / ts_delay(volume, 1) - 1, 4) * cs_rank(turnover) * ts_mean(high / low - 1, 5)",
+  "m6_07": "-ts_corr(close / ts_delay(close, 1) - 1, volume / ts_delay(volume, 1) - 1, 5)",
+  "m6_08": "-ts_corr(close / ts_delay(close, 1) - 1, volume / ts_delay(volume, 1) - 1, 5) * cs_rank(ts_mean(turnover, 3)) * ts_mean(high / low - 1, 5)",
+  "m6_09": "-ts_corr(close / ts_delay(close, 1) - 1, volume / ts_delay(volume, 1) - 1, 5) * cs_rank(turnover) * ts_mean((high - low) / ts_delay(close, 1), 5)",
+  "m6_10": "-ts_corr(close / ts_delay(close, 1) - 1, volume / ts_delay(volume, 1) - 1, 5) * cs_rank(turnover) * ts_mean(high / low - 1, 20)",
+  "m6_11": "-ts_sum(sign(close / ts_delay(close, 1) - 1) * sign(volume / ts_delay(volume, 1) - 1), 10) * cs_rank(turnover)",
+  "m6_12": "-ts_corr(close / ts_delay(close, 1) - 1, turnover / ts_delay(turnover, 1) - 1, 5) * cs_rank(turnover) * ts_mean(high / low - 1, 5)"
+}

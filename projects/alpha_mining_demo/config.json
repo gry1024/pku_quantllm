@@ -1,0 +1,23 @@
+{
+  "lab_path": "D:/pku_demo/raw/alpha_researcher/lab/csi300",
+  "cache_dir": "runs/cache",
+  "index": "000300.SSE",
+  "start": "2008-01-01",
+  "end": "2023-12-31",
+  "train_period": [
+    "2008-01-01",
+    "2016-12-31"
+  ],
+  "valid_period": [
+    "2017-01-01",
+    "2018-12-31"
+  ],
+  "test_period": [
+    "2019-01-01",
+    "2020-08-31"
+  ],
+  "extended_days": 100,
+  "workers": 4,
+  "label": "ts_delay(close, -3) / ts_delay(close, -1) - 1",
+  "eval_test": false
+}

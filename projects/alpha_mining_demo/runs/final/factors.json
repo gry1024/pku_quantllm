@@ -1,0 +1,23 @@
+{
+  "gap_diff4_bare": {
+    "expression": "ts_sum((open / ts_delay(close, 1) - 1) - (close / open - 1), 4)",
+    "name": "GAP_DIFF4_BARE（裸隔夜-日内分解，4日累计）",
+    "train_rank_ir": 0.379,
+    "valid_rank_ir": 0.276,
+    "test_rank_ir": 0.198
+  },
+  "gap_diff4_turn": {
+    "expression": "ts_sum((open / ts_delay(close, 1) - 1) - (close / open - 1), 4) * cs_rank(turnover)",
+    "name": "GAP_DIFF4_TURN（隔夜-日内分解×截面换手）",
+    "train_rank_ir": 0.372,
+    "valid_rank_ir": 0.292,
+    "test_rank_ir": 0.2
+  },
+  "gap_diff4_triple": {
+    "expression": "ts_sum((open / ts_delay(close, 1) - 1) - (close / open - 1), 4) * cs_rank(turnover) * ts_mean(high / low - 1, 5)",
+    "name": "GAP_DIFF4_TRIPLE（分解×换手×振幅，消融链终点）",
+    "train_rank_ir": 0.367,
+    "valid_rank_ir": 0.28,
+    "test_rank_ir": 0.191
+  }
+}
