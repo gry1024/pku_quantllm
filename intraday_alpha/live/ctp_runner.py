@@ -39,10 +39,12 @@ if str(_STRATEGY_DIR) not in sys.path:
     sys.path.insert(0, str(_STRATEGY_DIR))
 
 # Optional .env loading — graceful if python-dotenv isn't installed.
-# ``.env`` is one directory up, sibling of ``live/`` (see docstring).
+# ``.env`` lives at the repo root (sibling of this ``live/ctp_runner.py``'s
+# parent's parent). The same root .env is also used by ctp_demo.py and
+# ctp_breakout_demo.py — keep one copy of credentials.
 try:
     from dotenv import load_dotenv
-    load_dotenv(_HERE.parent / ".env", override=False)
+    load_dotenv(_HERE.parent.parent / ".env", override=False)
 except ImportError:
     pass
 
@@ -96,11 +98,9 @@ def main() -> None:
 
     env = _require_env()
     vt_symbol: str   = os.environ.get("INTRADAY_VT_SYMBOL", "au2612.SHFE")
-    # Anchor the signal file to the *research* side: research/run.py writes
-    # ``./lab/intraday/signal/intraday_live_signal.json`` relative to its own
-    # CWD (``.../research/``), so live reads from the sibling directory.
-    # Researchers who keep their lab under a different path can still override
-    # via the INTRADAY_SIGNAL_PATH env var.
+    # Signal file path: research/run.py writes ``./lab/intraday/signal/intraday_live_signal.json``
+    # relative to its own CWD (``intraday_alpha/research/``). Live reads from
+    # the same path; override via INTRADAY_SIGNAL_PATH if your lab lives elsewhere.
     default_signal_path: str = str(
         _HERE.parent / "research" / "lab" / "intraday" / "signal" / "intraday_live_signal.json"
     )
