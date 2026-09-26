@@ -45,6 +45,9 @@ from eval_factors import load_base_dataset, load_config, load_filters
 
 from vnpy.alpha.dataset import process_cs_norm, process_drop_na
 
+# AlphaLab 的 shelve 组件存储在 Win Python 3.13 上崩了；走 JSON
+from lab.component_json import patch_lab  # noqa: E402
+
 BASE_DIR = Path(__file__).resolve().parent
 CHART_DIR = BASE_DIR / "runs/final/charts"
 TRADING_DAYS = 244                # A股年均交易日数，用于年化
@@ -54,6 +57,9 @@ SEG_COLORS = {"train": "#f0f0f0", "valid": "#d5e8d5", "test": "#d8e4f0"}
 
 def compute_factors(factor_map: dict[str, str], config: dict) -> pd.DataFrame:
     """用 vnpy.alpha 管线一次算完全部留存因子 + label，返回长表 (datetime, vt_symbol, 因子..., label)。"""
+    from vnpy.alpha import AlphaLab
+    # Patch AlphaLab to use JSON component storage (Win Python 3.13 dbm broken)
+    patch_lab(AlphaLab(config["lab_path"]))
     dataset = copy.deepcopy(load_base_dataset(config))
     for name, expr in factor_map.items():
         dataset.add_feature(name=name, expression=expr)

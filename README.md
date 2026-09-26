@@ -1,70 +1,51 @@
 # quantllm
 
-PKU 当代量化交易系统课程作业。基于 [vnpy](https://github.com/vnpy/vnpy) 的 CTP 量化交易学习仓库。
+PKU 当代量化交易系统课程作业。
 
-## 入口脚本
+## 1. 学习笔记
 
-| 脚本 | 跑什么 | 命令 | 前置 |
-|---|---|---|---|
-| `ctp_demo.py` | Step 3+4：CTP 极简 DEMO，订阅 5 个活跃合约、持续打 tick | `python ctp_demo.py` | `.env` 有 SIMNOW 凭证；非交易时段 SIMNOW `实盘` 前置会拒连 |
-| `ctp_breakout_demo.py` | Step 6：突破价阈值触发限价开多 1 手 | `python ctp_breakout_demo.py` | 同上 |
-| `eval_factors.py` | Step 7：评估一轮候选因子的分段 IC/IR | `python eval_factors.py runs/gap_round_01/candidates.json` | `config.json` 里 `lab_path` 指向你的沪深300日线数据；依赖 `vnpy[alpha]` |
-| `final_report.py` | Step 7：出 `runs/final/performance_report.md` | `python final_report.py` | 同上 |
-| `intraday_alpha/research/run.py` | Capstone 离线：CSV → LightGBM → 信号 JSON → 回测 | `cd intraday_alpha/research && python run.py --predict-only` | 1-min OHLCV CSV；依赖 polars / lightgbm |
-| `intraday_alpha/live/ctp_runner.py` | Capstone 实盘：连 SIMNOW、按 1-min bar 下单 | `cd intraday_alpha/live && python ctp_runner.py` | 先跑上一行产 `live_signal.json`；`.env` 有凭证 |
+位于 `notes/`，按仓库克隆的三个源码分子目录（每个子目录是一份 Obsidian vault）：
 
-## 凭证
+- `notes/vnpy/` — VeighNa 主框架 11 概念分层笔记
+- `notes/vnpy_ctp/` — CTP 交易/行情接口 8 概念分层笔记
+- `notes/vnpy_ctastrategy/` — CTA 策略模块 10 概念分层笔记
 
-```bash
-cp .env.example .env
-# 编辑 .env 填入 SIMNOW 账号
-```
+每篇笔记按 01/02/... 编号，对应一个具体模块/概念。
 
-`SIMNOW模拟平台账户密码.txt` 也存了这份内容（gitignored）。所有脚本都从根 `.env` 读。
+## 2. 最终产物运行命令（位于仓库根目录）
 
-## 装依赖
+### (1) 对接 SIMNOW 行情 + 下单 demo
 
 ```bash
-# VeighNa 三个源码克隆（按 setup.py 的 name= 注册到 site-packages，目录名无关）
-pip install -e raw/vnpy -e raw/vnpy_ctp -e raw/vnpy_ctastrategy
+cp .env.example .env                       # 第一次跑前；填入 SIMNOW 凭证
 
-# vnpy[alpha]（私有源；带 vnpy.alpha + polars + matplotlib + alphalens-reloaded）
-pip install "vnpy[alpha]" --index=https://pypi.vnpy.com
-
-# capstone 额外依赖
-pip install lightgbm python-dotenv plotly
+python ctp_demo.py                          # 极简 demo：连接前置 → 订阅合约 → 持续打印 tick
+python ctp_breakout_demo.py                 # 进阶 demo：行情 → 突破阈值 → 限价追价开仓 → 回报
+#   BREAKOUT_TRIGGER_OFFSET=-0.5 python ctp_breakout_demo.py   # 立即触发验证发单链路
 ```
 
-## Step 7 数据准备（`eval_factors.py` / `final_report.py` 必需）
+凭证全部走环境变量（`CTP_USERID` / `CTP_PASSWORD` / `CTP_TD_ADDRESS` / `CTP_MD_ADDRESS` / …），代码内不持有任何默认账号。
+SIMNOW 7×24 仿真前置已配置为 `tcp://182.254.243.31:40001/:40011`（传统 `180.168.146.131:10202` 的 CTP 协议已停服，会立即断开）。
+运行证明：`runs/ctp_proof/ctp_demo_ticks.txt`、`runs/ctp_proof/ctp_breakout_order.txt`。
 
-`config.json` 里的 `lab_path` 当前是 `D:/pku_demo/raw/alpha_researcher/lab/csi300`（作业原始工作区的 Windows 绝对路径），**改成本机数据位置**：
-
-```json
-"lab_path": "你机器上的 /path/to/csi300"   // 沪深300日线，~859 只成分股
-```
-
-数据按 vnpy.alpha 的 `AlphaLab` 目录约定组织：`lab_path/<vt_symbol>.parquet`，列名 `date, open, high, low, close, volume, turnover, open_interest`。改完直接 `python eval_factors.py ...` 即可（首次构建会缓存到 `runs/cache/`，之后复用）。
-
-## Capstone 数据准备
-
-`intraday_alpha/research/run.py` 消费 1-min OHLCV CSV（列：`datetime, open, high, low, close, volume, turnover, open_interest`，`vwap` 可选）：
+### (2) 因子挖掘回测完整 pipeline
 
 ```bash
-cd intraday_alpha/research
-python run.py --ingest-csv ../../../data/au2612_1min.csv    # 一次性灌数据
-python run.py --predict-only                                 # 写 live_signal.json
+# 装依赖（一次）— VeighNa 私有源带 vnpy.alpha
+pip install "vnpy>=4.4" "vnpy_ctp>=6.7" "vnpy_ctastrategy>=1.4" "vnpy[alpha]" \
+    --index=https://pypi.vnpy.com
+
+# 准备沪深300日线数据到 lab/csi300/（AlphaLab parquet 格式）— 一次
+python lab/convert_qlib_to_alphalab.py      # 从 data/qlib_data/cn_data 转换（首次约 50s）
+
+# 跑 pipeline
+python eval_factors.py runs/gap_round_01/candidates.json   # 单轮候选因子：分段 IC/IR/胜率 → metrics.json
+python final_report.py                                      # 终局报告：3 留存因子 → runs/final/performance_report.md + 13 张 PNG 曲线
+
+# 查看产出
+cat runs/final/performance_report.md          # 表格 + 图集 + 分段多空 / 分年 RankIC
+ls runs/final/charts/                          # 分组累计 / 累积 RankIC / 多空累计 / 分年 RankIC × 3 因子 + 1 对比
 ```
 
-产出的 `intraday_alpha/research/runs/lab/intraday/signal/intraday_live_signal.json` 就是 live 策略读的信号文件。
-
-## 其它目录
-
-- `raw/` — vnpy / vnpy_ctp / vnpy_ctastrategy 源码克隆（gitignored 子内容，按上面 `pip install -e` 装）
-- `notes/` — Step 5 的 VeighNa 11 概念分层 Obsidian 笔记（`vnpy/` `vnpy_ctp/` `vnpy_ctastrategy/` 三个 vault）
-- `runs/` — Step 7 因子挖掘产物（6 轮 round + 2 个 final）
-- `intraday_alpha/research/runs/` — Capstone 离线产物（pickle 缓存 gitignored）
-- `data/`, `lab/` — gitignored
-
-## 参考作业
-
-[mabucai/repo_pku_quantllm](https://github.com/mabucai/repo_pku_quantllm) · [mabucai/factor_pku_quantllm](https://github.com/mabucai/factor_pku_quantllm)
+股票池：沪深300 成分股 683 只日线；label = T+1→T+3 收益；分段区间见 `config.json`（train 2008–2016 / valid 2017–2018 / test 2019–2020.08）。
+`lab/component_json.py` 是 Python 3.13 on Windows 上 `shelve` 失效的 JSON 替代（自动 patch 进 `AlphaLab`，无需手动干预）。

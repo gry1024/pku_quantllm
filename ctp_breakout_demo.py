@@ -64,12 +64,12 @@ def _load_setting() -> dict[str, str]:
 SETTING: dict[str, str] = _load_setting()
 
 # ---------------- 策略配置（验证下单链路时可把 TRIGGER_OFFSET 设为负值立即触发） ----------------
-SYMBOL =           "au2612"    # 交易合约（须为当前挂牌月份）
-SYMBOL_EXCHANGE =  "SHFE"      # 交易所（demo 硬编码；正式做法用 reqQryInstrument 查询）
-VOLUME =           1           # 下单手数
-DIRECTION_UP =     True        # True: 向上突破开多；False: 向下跌破开空
-TRIGGER_OFFSET =   0.1         # 触发阈值 = 首个 tick 最新价 + 该偏移
-PRICE_OFFSET =     1.0         # 委托价 = 触发时最新价 + 该偏移（追价保证成交）
+SYMBOL =           os.environ.get("BREAKOUT_SYMBOL",          "au2612")  # 交易合约（须为当前挂牌月份）
+SYMBOL_EXCHANGE =  os.environ.get("BREAKOUT_SYMBOL_EXCHANGE", "SHFE")    # 交易所（demo 硬编码；正式做法用 reqQryInstrument 查询）
+VOLUME =           int(os.environ.get("BREAKOUT_VOLUME",       "1"))      # 下单手数
+DIRECTION_UP =     os.environ.get("BREAKOUT_DIRECTION_UP",    "True") == "True"  # True: 向上突破开多；False: 向下跌破开空
+TRIGGER_OFFSET =   float(os.environ.get("BREAKOUT_TRIGGER_OFFSET", "0.1"))  # 触发阈值 = 首个 tick 最新价 + 该偏移
+PRICE_OFFSET =     float(os.environ.get("BREAKOUT_PRICE_OFFSET",   "1.0"))  # 委托价 = 触发时最新价 + 该偏移（追价保证成交）
 
 # 流文件目录（CTP 底层要求一个可写的本地目录存放流文件）
 FLOW_PATH = Path(__file__).parent / "flow"

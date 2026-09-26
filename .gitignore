@@ -26,6 +26,7 @@ flow/                                # ctp_demo.py / ctp_breakout_demo.py 的 CT
 # 研究产物（lab / runs / 缓存 / 行情数据）
 # =============================================================================
 lab/intraday/
+lab/csi300/daily/
 **/runs/cache/
 data/
 

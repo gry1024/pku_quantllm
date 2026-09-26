@@ -29,6 +29,10 @@ from vnpy.trader.constant import Interval
 from vnpy.alpha import AlphaDataset, AlphaLab
 from vnpy.alpha.dataset import process_cs_norm, process_drop_na
 
+# Python 3.13 on Windows has no working dbm backend; replace AlphaLab's
+# shelve-based component storage with a JSON file (see lab/component_json.py).
+from lab.component_json import patch_lab  # noqa: E402
+
 BASE_DIR = Path(__file__).resolve().parent
 
 
@@ -69,6 +73,7 @@ def load_base_dataset(config: dict[str, Any]) -> AlphaDataset:
 
     # raw/ 目录只读：只从 lab 读数据，不调用 lab.save_dataset
     lab = AlphaLab(config["lab_path"])
+    patch_lab(lab)
     symbols = lab.load_component_symbols(
         index_symbol=config["index"],
         start=config["start"],
@@ -104,6 +109,7 @@ def load_filters(config: dict[str, Any]) -> dict | None:
             return pickle.load(f)
 
     lab = AlphaLab(config["lab_path"])
+    patch_lab(lab)
     filters = lab.load_component_filters(
         index_symbol=config["index"],
         start=config["start"],
